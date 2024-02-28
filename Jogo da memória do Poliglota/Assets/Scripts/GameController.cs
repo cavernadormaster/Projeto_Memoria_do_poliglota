@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -20,8 +21,13 @@ public class GameController : MonoBehaviour
     private int firstGuessIndex, secondGuessIndex;
     private string firstGuessPuzzle, SecondGuessPuzzle;
 
+    public static int colluns;
+
+    public GridLayoutGroup layoutGroup;
+
     private void Awake()
     {
+        layoutGroup.constraintCount = colluns;
         puzzles = Resources.LoadAll<Sprite>("Imagens/Numbers");
     }
 
@@ -128,7 +134,7 @@ public class GameController : MonoBehaviour
 
         if(countCorrectguesses == gameGuesses)
         {
-            Debug.Log("Finished");
+            SceneManager.LoadScene("FinalizationScene");
         }
     }
 

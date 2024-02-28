@@ -10,7 +10,7 @@ public class RandomizePositions : MonoBehaviour
     [SerializeField]
     private GameObject ButtonPuzzle;
 
-    public int AmountOfNumbers;
+    public static int AmountOfNumbers;
 
     private void Awake()
     {

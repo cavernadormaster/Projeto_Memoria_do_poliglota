@@ -437,8 +437,8 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 1, y: 1}
-  m_Constraint: 1
-  m_ConstraintCount: 4
+  m_Constraint: 2
+  m_ConstraintCount: 2
 --- !u!114 &562565847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +509,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Puzzefield: {fileID: 562565845}
   ButtonPuzzle: {fileID: 3016232091485800040, guid: 6f8adc9fc90126e4db4d5cbbd5d79ec8, type: 3}
-  AmountOfNumbers: 2
 --- !u!4 &771676469
 Transform:
   m_ObjectHideFlags: 0
@@ -541,3 +540,4 @@ MonoBehaviour:
   puzzles: []
   gamePuzzles: []
   buttons: []
+  layoutGroup: {fileID: 562565846}
