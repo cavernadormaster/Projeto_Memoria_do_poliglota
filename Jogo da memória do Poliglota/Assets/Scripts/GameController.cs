@@ -137,6 +137,7 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene("FinalizationScene");
             LevelIdentification.CurrentLevel++;
             LevelIdentification.LevelsUnlocked++;
+            SaveGameSystem.LevelsUnlokcked = LevelIdentification.LevelsUnlocked;
         }
     }
 

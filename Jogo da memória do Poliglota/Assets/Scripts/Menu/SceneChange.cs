@@ -9,11 +9,13 @@ public class SceneChange : MonoBehaviour
 
     public void Changescene()
     {
+        SaveGameSystem.SavingGame = true;
         SceneManager.LoadScene(SceneToChange);
     }
 
     public void ExitGame()
     {
+        SaveGameSystem.SavingGame = true;
         Application.Quit();
     }
 
@@ -27,5 +29,9 @@ public class SceneChange : MonoBehaviour
         GameController.colluns = colluns;
     }
 
+    public void LoadGame()
+    {
+        SaveGameSystem.LoadingData = true;
+    }
    
 }
