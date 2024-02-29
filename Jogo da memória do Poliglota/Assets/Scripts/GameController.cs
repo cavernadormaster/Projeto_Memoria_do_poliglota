@@ -135,6 +135,8 @@ public class GameController : MonoBehaviour
         if(countCorrectguesses == gameGuesses)
         {
             SceneManager.LoadScene("FinalizationScene");
+            LevelIdentification.CurrentLevel++;
+            LevelIdentification.LevelsUnlocked++;
         }
     }
 

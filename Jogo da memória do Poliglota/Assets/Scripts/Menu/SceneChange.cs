@@ -26,4 +26,6 @@ public class SceneChange : MonoBehaviour
     {
         GameController.colluns = colluns;
     }
+
+   
 }
