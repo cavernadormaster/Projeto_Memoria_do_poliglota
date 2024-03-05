@@ -28,7 +28,47 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         layoutGroup.constraintCount = colluns;
-        puzzles = Resources.LoadAll<Sprite>("Imagens/Numbers");
+
+        switch(LevelIdentification.CurrentLevel + 1)
+        {
+            case 1:
+                Debug.Log("Fase 1");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil");
+                break;
+            case 2:
+                Debug.Log("Fase 2");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil");
+                break;
+            case 3:
+                Debug.Log("Fase 3");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil");
+                break;
+            case 4:
+                Debug.Log("Fase 4");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio");
+                break;
+            case 5:
+                Debug.Log("Fase 5");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio");
+                break;
+            case 6:
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio");
+                break;
+            case 7:
+                Debug.Log("Fase 7");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                break;
+            case 8:
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                break;
+            case 9:
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                break;
+            case 10:
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                break;
+        
+        }
     }
 
     private void Start()
