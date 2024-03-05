@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour
 
     public GridLayoutGroup layoutGroup;
 
+    public static int Level;
+
     private void Awake()
     {
         layoutGroup.constraintCount = colluns;
@@ -33,39 +35,39 @@ public class GameController : MonoBehaviour
         {
             case 1:
                 Debug.Log("Fase 1");
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil_Numeros_0A5");
                 break;
             case 2:
                 Debug.Log("Fase 2");
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil_Numeros_0A5");
                 break;
             case 3:
                 Debug.Log("Fase 3");
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Facil_Numeros_0A5");
                 break;
             case 4:
                 Debug.Log("Fase 4");
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio_Numero_0A5");
                 break;
             case 5:
                 Debug.Log("Fase 5");
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio_Numero_0A5");
                 break;
             case 6:
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Medio_Numero_0A5");
                 break;
             case 7:
                 Debug.Log("Fase 7");
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil_Numeros_0A5");
                 break;
             case 8:
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil_Numeros_0A5");
                 break;
             case 9:
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil_Numeros_0A5");
                 break;
             case 10:
-                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil");
+                puzzles = Resources.LoadAll<Sprite>("Imagens/Dificil_Numeros_0A5");
                 break;
         
         }
@@ -174,10 +176,18 @@ public class GameController : MonoBehaviour
 
         if(countCorrectguesses == gameGuesses)
         {
-            SceneManager.LoadScene("FinalizationScene");
-            LevelIdentification.CurrentLevel++;
-            LevelIdentification.LevelsUnlocked++;
-            SaveGameSystem.LevelsUnlokcked = LevelIdentification.LevelsUnlocked;
+            if (Level == LevelIdentification.CurrentLevel + 1)
+            {
+                LevelIdentification.CurrentLevel++;
+                LevelIdentification.LevelsUnlocked++;
+                SaveGameSystem.LevelsUnlokcked = LevelIdentification.LevelsUnlocked;
+                SceneManager.LoadScene("FinalizationScene");
+            }
+            else
+            {
+                SaveGameSystem.LevelsUnlokcked = LevelIdentification.LevelsUnlocked;
+                SceneManager.LoadScene("FinalizationScene");
+            }
         }
     }
 

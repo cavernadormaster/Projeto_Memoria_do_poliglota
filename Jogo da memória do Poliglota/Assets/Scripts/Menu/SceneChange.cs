@@ -33,5 +33,10 @@ public class SceneChange : MonoBehaviour
     {
         SaveGameSystem.LoadingData = true;
     }
+
+    public static void Level(int Level)
+    {
+        GameController.Level = Level;
+    }
    
 }
