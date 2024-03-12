@@ -25,17 +25,17 @@ public class SaveGameSystem : MonoBehaviour
         }
     }
 
-    public void SaveData()
+    public static void SaveData()
     {
         PlayerPrefs.SetInt("LevelsUnlocked", LevelsUnlokcked);
     }
 
-    public void LoadData()
+    public static void LoadData()
     {
         LevelIdentification.LevelsUnlocked = PlayerPrefs.GetInt("LevelsUnlocked");
     }
 
-    public void DeleteData()
+    public static void DeleteData()
     {
         PlayerPrefs.DeleteKey("LevelsUnlocked");
     }

@@ -38,5 +38,14 @@ public class SceneChange : MonoBehaviour
     {
         GameController.Level = Level;
     }
+
+    public void DeleteSavedGames()
+    {
+        SaveGameSystem.DeleteData();
+        LevelIdentification.LevelsUnlocked = 0;
+        LevelIdentification.CurrentLevel = 0;
+        LevelIdentification.ResetLevels();
+        SaveGameSystem.SaveData();
+    }
    
 }
