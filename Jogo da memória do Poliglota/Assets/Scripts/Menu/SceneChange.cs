@@ -6,6 +6,44 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     public string SceneToChange;
+    
+    int Dificulti;
+
+    public GameObject[] TiposDeNivel;
+    public GameObject Titulo;
+    
+
+    private void Start()
+    {
+        if (LevelIdentification.jaPassouDoTitulo)
+        {
+            Debug.Log("Japassei");
+            Titulo.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        switch(LevelIdentification.TipodeNivel)
+        {
+            case 0:
+                return;
+            case 1:
+                TiposDeNivel[0].SetActive(true);
+                break;
+            case 2:
+                TiposDeNivel[1].SetActive(true);
+                break;
+        }
+    }
+
+   
+
+    public void SetTypeOfLevel(int Type)
+    {
+       LevelIdentification.TipodeNivel = Type;
+        LevelIdentification.jaPassouDoTitulo = true;
+    }
 
     public void Changescene()
     {

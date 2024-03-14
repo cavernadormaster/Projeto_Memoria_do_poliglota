@@ -130,88 +130,6 @@ public class GameController : MonoBehaviour
 
             firstGuessPuzzle = gamePuzzles[firstGuessIndex].name;
 
-            switch (gamePuzzles[firstGuessIndex].name)
-            {
-                case "Chinês - 0_0":
-                    Debug.Log("Tocou");
-                    audioSource.PlayOneShot(Audios[0]);
-                    break;
-                case "Inglês - 0_0":
-                    Debug.Log("Tocou");
-                    audioSource.PlayOneShot(Audios[1]);
-                    break;
-                case "Outro - 0_0":
-                    Debug.Log("Tocou");
-                    audioSource.PlayOneShot(Audios[2]);
-                    break;
-                case "Português - 0_0":
-                    Debug.Log("Tocou");
-                    audioSource.PlayOneShot(Audios[3]);
-                    break;
-                case "Chinês - 1_0":
-                    audioSource.PlayOneShot(Audios[4]);
-                    break;
-                case "Inglês - 1_0":
-                    audioSource.PlayOneShot(Audios[5]);
-                    break;
-                case "Outro - 1_0":
-                    audioSource.PlayOneShot(Audios[6]);
-                    break;
-                case "Português - 1_0":
-                    audioSource.PlayOneShot(Audios[7]);
-                    break;
-                case "2 - Chines_0":
-                    audioSource.PlayOneShot(Audios[8]);
-                    break;
-                case "2 - Ingles_0":
-                    audioSource.PlayOneShot(Audios[9]);
-                    break;
-                case "2 - outro_0":
-                    audioSource.PlayOneShot(Audios[10]);
-                    break;
-                case "2 - Portugues_0":
-                    audioSource.PlayOneShot(Audios[11]);
-                    break;
-                case "3 - chines_0":
-                    audioSource.PlayOneShot(Audios[12]);
-                    break;
-                case "3 - ingles_0":
-                    audioSource.PlayOneShot(Audios[13]);
-                    break;
-                case "3 - outro_0":
-                    audioSource.PlayOneShot(Audios[14]);
-                    break;
-                case "3 - Portugues_0":
-                    audioSource.PlayOneShot(Audios[15]);
-                    break;
-                case "4 - chines_0":
-                    audioSource.PlayOneShot(Audios[16]);
-                    break;
-                case "4 - ingles_0":
-                    audioSource.PlayOneShot(Audios[17]);
-                    break;
-                case "4 - outro_0":
-                    audioSource.PlayOneShot(Audios[18]);
-                    break;
-                case "4 - portugues_0":
-                    audioSource.PlayOneShot(Audios[19]);
-                    break;
-                case "5 - chines_0":
-                    audioSource.PlayOneShot(Audios[20]);
-                    break;
-                case "5 - ingles_0":
-                    audioSource.PlayOneShot(Audios[21]);
-                    break;
-                case "5 - outro_0":
-                    audioSource.PlayOneShot(Audios[22]);
-                    break;
-                case "5 - portugues_0":
-                    audioSource.PlayOneShot(Audios[23]);
-                    break;
-
-            }
-
-
             buttons[firstGuessIndex].image.sprite = gamePuzzles[firstGuessIndex];
         }
         else if(!secondGuess)
@@ -221,6 +139,20 @@ public class GameController : MonoBehaviour
 
             SecondGuessPuzzle = gamePuzzles[secondGuessIndex].name;
 
+            
+
+            buttons[secondGuessIndex].image.sprite = gamePuzzles[secondGuessIndex];
+
+            countGuesses++;
+
+            StartCoroutine(CheckIfThePuzzlesMatch());
+
+        }
+    }
+    IEnumerator CheckIfThePuzzlesMatch()
+    {
+        if (firstGuessPuzzle == SecondGuessPuzzle)
+        {
             switch (gamePuzzles[secondGuessIndex].name)
             {
                 case "Chinês - 0_0":
@@ -301,21 +233,12 @@ public class GameController : MonoBehaviour
                     break;
 
             }
-
-            buttons[secondGuessIndex].image.sprite = gamePuzzles[secondGuessIndex];
-
-            countGuesses++;
-
-            StartCoroutine(CheckIfThePuzzlesMatch());
-
         }
-    }
-    IEnumerator CheckIfThePuzzlesMatch()
-    {
-        yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
 
         if(firstGuessPuzzle == SecondGuessPuzzle)
         {
+
             yield return new WaitForSeconds(.5f);
 
             buttons[firstGuessIndex].interactable = false;

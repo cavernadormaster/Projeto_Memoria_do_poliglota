@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class LevelIdentification : MonoBehaviour
 {
     public static int CurrentLevel;
-    public static int LevelsUnlocked = 1;
+    public static int LevelsUnlocked = 0;
     public Button[] Levels;
     public static Button[] LevelsReset;
+    public static bool jaPassouDoTitulo;
+    public static int TipodeNivel;
 
     private void Start()
     {
@@ -27,10 +29,12 @@ public class LevelIdentification : MonoBehaviour
         for(int i = 0; i < LevelsUnlocked; i++)
         {
             Levels[i].interactable = true;
+            Debug.Log(LevelsUnlocked);
+            Debug.Log(CurrentLevel);
         }
         Levels[CurrentLevel].interactable = true;
 
-        if(CurrentLevel + 1 == 3)
+        if(CurrentLevel + 1 == 10)
         {
             Button resetButton = GameObject.FindGameObjectWithTag("ResetButton").GetComponent<Button>();
             resetButton.interactable = true;
